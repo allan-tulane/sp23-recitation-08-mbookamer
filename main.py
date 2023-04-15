@@ -31,10 +31,10 @@ def fast_MED(S, T, MED={}):
         return len(S)
     else:
         if (S[0] == T[0]): #if they are the same word
-            MED_cache[(S, T)] = fast_slign_MED(S[1:], T[1:])
+            MED_cache[(S, T)] = fast_MED(S[1:], T[1:])
             return MED_cache[(S, T)]
         else:
-            MED_cache[(S, T)] = (1 + min(fast_align_MED(S, T[1:]), fast_align_MED(S[1:], T[1:])))
+            MED_cache[(S, T)] = (1 + min(fast_MED(S, T[1:]), fast_MED(S[1:], T[1:])))
             return MED_cache[(S, T)]
     pass
 
